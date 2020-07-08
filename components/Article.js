@@ -88,26 +88,58 @@ const data = [
   }
 ];
 
-/* Step 1: Write a component called 'articleMaker' to create an article. You want your component to return markup like the template below: 
+// Step 1: Write a component called 'articleMaker' to create an article. You want your component to return markup like the template below: 
 
-  <div class="article">
-    <h2>{title of the article}</h2>
-    <p class="date">{date of the article}</p>
+  // <div class="article">
+  //   <h2>{title of the article}</h2>
+  //   <p class="date">{date of the article}</p>
 
-    {three separate paragraph elements}
+  //   {three separate paragraph elements}
 
-    <span class='expandButton'>+</span>
-  </div>
+  //   <span class='expandButton'>+</span>
+  // </div>
 
-  Hint: You will need to use createElement more than once here!
 
-  Your function should take either an object as its one argument, or 5 separate strings mapping to each property of an article object.
+  function articleMaker(data) {
+const article = document.createElement('div')
+const title = document.createElement('h2')
+const date = document.createElement('p')
+const text = document.createElement('p')
+const text2 = document.createElement('p')
+const text3 = document.createElement('p')
+const button = document.createElement('span')
+  
+article.appendChild(title)
+article.appendChild(date)
+article.appendChild(text)
+article.appendChild(text2)
+article.appendChild(text3)
+article.appendChild(button)
 
-  Step 2: Add an event listener to the expandButton span. This listener should toggle the class 'article-open' on the 'article' div.
+article.className = 'article'
+text.className = 'date'
+button.className = 'expandButton'
 
-  Step 3: Don't forget to return something from your function!
+title.textContent = data.title
+date.textContent = data.date
+text.textContent = data.firstParagraph
+text2.textContent = data.secondParagraph
+text3.textContent = data.thirdParagraph
+  // Hint: You will need to use createElement more than once here!
 
-  Step 4: Outside your function, loop over the data. At each iteration you'll use your component to create an article and append it to the DOM inside the 'articles' div.
+  // Your function should take either an object as its one argument, or 5 separate strings mapping to each property of an article object.
 
-  Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
-*/
+  // Step 2: Add an event listener to the expandButton span. This listener should toggle the class 'article-open' on the 'article' div.
+button.addEventListener('click', () => {
+  article.classList.toggle('article-open')
+})
+  // Step 3: Don't forget to return something from your function!
+return article
+  }
+  // console.log(articleMaker('React vs Angular vs Vue'))
+  // Step 4: Outside your function, loop over the data. At each iteration you'll use your component to create an article and append it to the DOM inside the 'articles' div.
+for(let i = 0; i < data.length; i++){
+  let button = articleMaker(data[i])
+  article.appendChild(button)
+}
+  // Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
