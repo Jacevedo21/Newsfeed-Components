@@ -9,25 +9,41 @@ let menuItems = [
   'Log Out'
 ];
 
-/* 
-  Step 1: Write a component called 'menuMaker' to create a menu like the markup below:
 
-  <div class="menu">
-    <ul>
-      {each menu item as a list item}
-    </ul>
-  </div>
+  // Step 1: Write a component called 'menuMaker' to create a menu like the markup below:
 
-  The 'menuMaker' takes an array as its only argument.
+  // <div class="menu">
+  //   <ul>
+  //     {each menu item as a list item}
+  //   </ul>
+  // </div>
 
-  Step 2: Inside the function, iterate over the array creating a list item <li> element for each item in the array. 
-  Add those items to the <ul>
+  // The 'menuMaker' takes an array as its only argument.
 
-  Step 3: Using a DOM selector, select the menu button (the element with a class of 'menu-button') currently on the DOM.
+  // Step 2: Inside the function, iterate over the array creating a list item <li> element for each item in the array. 
+  // Add those items to the <ul>
 
-  Step 4: add a click event listener to the menu button. When clicked it should toggle the class 'menu--open' on the menu (your div with a 'menu' class).
+  // Step 3: Using a DOM selector, select the menu button (the element with a class of 'menu-button') currently on the DOM.
 
-  Step 5: return your div with a 'menu' class.
+  // Step 4: add a click event listener to the menu button. When clicked it should toggle the class 'menu--open' on the menu (your div with a 'menu' class).
 
-  Step 6: Use 'menuMaker' to create a menu using the 'menuItems' array, and append the returned menu to the header.
-*/
+  // Step 5: return your div with a 'menu' class.
+
+  // Step 6: Use 'menuMaker' to create a menu using the 'menuItems' array, and append the returned menu to the header.
+
+// function menuMaker (array) {
+//   const menu = document.createElement('div')
+//   const fullList = document.createElement('ul')
+//   const list = document.createElement('li')
+  
+// menu.appendChild(fullList)
+// fullList.appendChild(list)
+
+//   menu.className = 'menu'
+
+//   // menuItems.forEach( item => {
+//   //   let items = menuMaker(item)
+//   //   fullList.appendChild(items)
+//   // })
+// }
+// console.log(menuMaker('dog','cat', 'woof'))
