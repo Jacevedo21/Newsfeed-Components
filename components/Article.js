@@ -85,6 +85,24 @@ const data = [
     thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
+  },
+  {
+  title: 'Why Having a Waifu is Bad!',
+    date: 'July, 8th, 2020',
+    firstParagraph: `Look at Michael. Dagobah hutt jawa leia calamari ventress skywalker yoda. Binks wicket hutt coruscant sidious
+    naboo ackbar tatooine. Hutt lars padmé darth. Maul solo darth darth jabba qui-gon chewbacca darth maul. Moff baba wicket
+    han. C-3po antilles moff qui-gon ahsoka aayla dooku amidala. Palpatine droid amidala droid k-3po twi'lek padmé wookiee. Leia
+    moff calamari mon obi-wan. Solo grievous lando coruscant. Jinn darth palpatine obi-wan mon.`,
+
+    secondParagraph: `First bae is always from a anime. Dagobah hutt jawa leia calamari ventress skywalker yoda. Binks wicket hutt coruscant sidious
+    naboo ackbar tatooine. Hutt lars padmé darth. Maul solo darth darth jabba qui-gon chewbacca darth maul. Moff baba wicket
+    han. C-3po antilles moff qui-gon ahsoka aayla dooku amidala. Palpatine droid amidala droid k-3po twi'lek padmé wookiee. Leia
+    moff calamari mon obi-wan. Solo grievous lando coruscant. Jinn darth palpatine obi-wan mon.`,
+
+    thirdParagraph: `ワイフを持つことは最高の経験です. Dagobah hutt jawa leia calamari ventress skywalker yoda. Binks wicket hutt coruscant sidious
+        naboo ackbar tatooine. Hutt lars padmé darth. Maul solo darth darth jabba qui-gon chewbacca darth maul. Moff baba wicket
+        han. C-3po antilles moff qui-gon ahsoka aayla dooku amidala. Palpatine droid amidala droid k-3po twi'lek padmé wookiee. Leia
+        moff calamari mon obi-wan. Solo grievous lando coruscant. Jinn darth palpatine obi-wan mon.`
   }
 ];
 
@@ -100,31 +118,32 @@ const data = [
   // </div>
 
 
-  function articleMaker(data) {
-const article = document.createElement('div')
-const title = document.createElement('h2')
-const date = document.createElement('p')
-const text = document.createElement('p')
-const text2 = document.createElement('p')
-const text3 = document.createElement('p')
-const button = document.createElement('span')
+  function articleMaker(object) {
+    const article = document.createElement('div')
+    const title = document.createElement('h2')
+    const date = document.createElement('p')
+    const text = document.createElement('p')
+    const text2 = document.createElement('p')
+    const text3 = document.createElement('p')
+    const button = document.createElement('span')
   
-article.appendChild(title)
-article.appendChild(date)
-article.appendChild(text)
-article.appendChild(text2)
-article.appendChild(text3)
-article.appendChild(button)
+    article.appendChild(title)
+    article.appendChild(date)
+    article.appendChild(text)
+    article.appendChild(text2)
+    article.appendChild(text3)
+    article.appendChild(button)
 
-article.className = 'article'
-text.className = 'date'
-button.className = 'expandButton'
+    article.className = 'article'
+    text.className = 'date'
+    button.className = 'expandButton'
 
-title.textContent = data.title
-date.textContent = data.date
-text.textContent = data.firstParagraph
-text2.textContent = data.secondParagraph
-text3.textContent = data.thirdParagraph
+    title.textContent = object.title
+    date.textContent = object.date
+    text.textContent = object.firstParagraph
+    text2.textContent = object.secondParagraph
+    text3.textContent = object.thirdParagraph
+    button.textContent = "+"
   // Hint: You will need to use createElement more than once here!
 
   // Your function should take either an object as its one argument, or 5 separate strings mapping to each property of an article object.
@@ -134,12 +153,19 @@ button.addEventListener('click', () => {
   article.classList.toggle('article-open')
 })
   // Step 3: Don't forget to return something from your function!
-return article
-  }
-  // console.log(articleMaker('React vs Angular vs Vue'))
-  // Step 4: Outside your function, loop over the data. At each iteration you'll use your component to create an article and append it to the DOM inside the 'articles' div.
-for(let i = 0; i < data.length; i++){
-  let button = articleMaker(data[i])
-  article.appendChild(button)
+  return article
 }
+  
+  // Step 4: Outside your function, loop over the data. At each iteration you'll use your component to create an article and append it to the DOM inside the 'articles' div.
+  
+  const articles = document.querySelector('.articles')
+  data.forEach( element => {
+    // const article = element
+    const newArticle = articleMaker(element)
+    articles.appendChild(newArticle)
+})
+
+
   // Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
+  // add a new article
+  
